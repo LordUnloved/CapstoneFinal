@@ -18,7 +18,7 @@ The table below describes the folders in this starter repository:
 
 | Folder/file path | Description                                                      |
 | ---------------- | ---------------------------------------------------------------- |
-| `./back-end`     | The backend project, which runs on `localhost:5001` by default.  |
+| `./back-end`     | The backend project, which runs on `localhost:5000` by default.  |
 | `./front-end`    | The frontend project, which runs on `localhost:3000` by default. |
 
 This starter code closely follows the best practices and patterns established in the Robust Server Structure module.
@@ -87,7 +87,7 @@ Run `npx knex` commands from within the `back-end` folder, which is where the `k
 1. Run `cp ./back-end/.env.sample ./back-end/.env`.
 1. Update the `./back-end/.env` file with the connection URL's to your ElephantSQL database instance.
 1. Run `cp ./front-end/.env.sample ./front-end/.env`.
-1. You should not need to make changes to the `./front-end/.env` file unless you want to connect to a backend at a location other than `http://localhost:5001`.
+1. You should not need to make changes to the `./front-end/.env` file unless you want to connect to a backend at a location other than `http://localhost:5000`.
 1. Run `npm install` to install project dependencies.
 1. Run `npm run start:dev` to start your server in development mode.
 
@@ -150,7 +150,7 @@ You can use the screenshots to debug your code by rendering additional informati
 
 The Product Manager has already created the user stories for _Periodic Tables_. Each of the user stories is listed below, and your Product Manager wants them to be implemented in the order in which they are listed. Another developer has already written the tests for each of the user stories so that you don't have to.
 
-Although the user stories do not say anything about deployment, you should consider deploying early and often. You may even decide to deploy before adding any features. We recommend that you use Render to deploy this project.
+Although the user stories do not say anything about deployment, you should consider deploying early and often. You may even decide to deploy before adding any features. We recommend that you use [Heroku](https://devcenter.heroku.com/articles/deploying-nodejs) to deploy this project.
 
 ### US-01 Create and list reservations
 
@@ -336,7 +336,7 @@ so that I can see which reservation parties are seated, and finished reservation
    - display the Seat button only when the reservation status is "booked".
    - clicking the Seat button changes the status to "seated" and hides the Seat button.
    - clicking the Finish button associated with the table changes the reservation status to "finished" and removes the reservation from the dashboard.
-   - to set the status, PUT to `/reservations/:reservation_id/status` with a body of `{data: { status: "<new-status>" } }` where `<new-status>` is one of booked, seated, or finished. Please note that this is only tested in the back-end for now.
+   - to set the status, PUT to `/reservations/:reservation_id/status` with a body of `{data: { status: "<new-status>" } }` where `<new-status>` is one of booked, seated, or finished
 
 > **Hint** You can add a field to a table in a migration `up` method by defining a new column. E.g. `table.string("last_name", null).notNullable();` will create a new last_name column.  Be sure to remove the column in the `down` function using `dropColumn()`. E.g. `table.dropColumn("last_name");`
 
@@ -353,7 +353,7 @@ so that I can quickly access a customer's reservation when they call about their
 1. The `/search` page will
    - Display a search box `<input name="mobile_number" />` that displays the placeholder text: "Enter a customer's phone number"
    - Display a "Find" button next to the search box.
-   - Clicking on the "Find" button will submit a request to the server (e.g. GET `/reservations?mobile_number=800-555-1212`).
+   - Clicking on the "Find" button will submit a request to the server (e.g. GET `/reservations?mobile_phone=555-1212`).
      - then the system will look for the reservation(s) in the database and display all matched records on the `/search` page using the same reservations list component as the `/dashboard` page.
      - the search page will display all reservations matching the phone number, regardless of status.
    - display `No reservations found` if there are no records found after clicking the Find button.
@@ -398,5 +398,3 @@ so that reservations are accurate and current.
    - Clicking "Cancel" makes no changes, then display the previous page.
 
 > **Hint** The same validation used for create applies to editing a reservation. The form and the API for updating a reservation must not allow the user to violate any of the rules specified when creating a reservation.
-# FinalCapstone
-# FinalCapstone
