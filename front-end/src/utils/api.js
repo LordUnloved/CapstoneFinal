@@ -155,37 +155,4 @@
      method: 'GET',
    })
  }
-  const promises = [
-    fetchJson(
-      tableUrl,
-      {
-        headers,
-        signal,
-        method: "PUT",
-        body: JSON.stringify({
-          data: {
-            reservation_id,
-          },
-        }),
-      },
-      []
-    ),
-    fetchJson(
-      reservationUrl,
-      {
-        headers,
-        signal,
-        method: "PUT",
-        body: JSON.stringify({
-          data: {
-            status: "seated",
-          },
-        }),
-      },
-      []
-    ),
-  ];
 
-  return await Promise.all(promises);
-
-}
