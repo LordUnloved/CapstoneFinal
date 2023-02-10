@@ -144,6 +144,15 @@ export async function clearTable(table_id, signal) {
   );
 }
 
+ export async function search(mobile_number, signal) {
+   const url = new URL(`${API_BASE_URL}/reservations?mobile_number=${mobile_number}`);
+   return await fetchJson(url, {
+     headers,
+     signal,
+     method: 'GET',
+   })
+ }
+
 export async function updateStatus(reservation_id, table_id, signal) {
   const tableUrl = new URL(`${API_BASE_URL}/tables/${table_id}/seat`);
   const reservationUrl = new URL(
