@@ -1,7 +1,7 @@
 # Restaurant Reservation App
 ---
-![Restuarant-app](insertpicture)
-### Live site: sitelink.com
+![Restuarant-app](https://github.com/Skinniez/CapstoneFinal/blob/main/reservations.png)
+### Live site: https://reservationsfrontend.onrender.com/dashboard
 ## Description
 This project involved developing a restaurant app that enables users to manage reservations - create, update, view, delete - and seat guests at different tables in the restaurant.
 
