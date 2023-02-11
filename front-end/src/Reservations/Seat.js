@@ -6,7 +6,7 @@ import ErrorAlert from "../layout/ErrorAlert";
 function Seat() {
   const [tables, setTables] = useState([]);
   const [error, setError] = useState(null);
-  const [formData, setFormData] = useState({ table_id: null });
+  const [formData, setFormData] = useState({ table_id: "" });
   const [reservation, setReservation] = useState(null);
 
   const { reservation_id } = useParams();
@@ -46,12 +46,6 @@ function Seat() {
     return () => controller.abort();
   }
 
-  let tableSelect = tables.map((table) => (
-    <option key={table.table_id} value={table.table_id}>
-      {table.table_name} - {table.capacity}
-    </option>
-  ));
-
   return (
     <div>
       <ErrorAlert error={error} />
@@ -67,11 +61,14 @@ function Seat() {
             className="form-control form-select form-select-lg"
             id="table_id"
             name="table_id"
-            multiple
-            size={tables.length + 1}
+            value={formData.table_id}
           >
             <option value="">--Select a table--</option>
-            {tables.length && tableSelect}
+            {tables.map((table) => (
+              <option key={table.table_id} value={table.table_id}>
+                {table.table_name} - {table.capacity}
+              </option>
+            ))}
           </select>
         </label>
         </div>
@@ -82,13 +79,13 @@ function Seat() {
           type="submit" 
           className="btn btn-primary"
           disabled={!formData.table_id}
-        >
-          Submit
-        </button>
-      </form>
-        </div>
-    </div>
-  );
+>
+Submit
+</button>
+</form>
+</div>
+</div>
+);
 }
 
 export default Seat;
